@@ -1,0 +1,42 @@
+version: '3'
+
+tasks:
+  build:
+    desc: コンテナをビルドする
+    cmds:
+      - docker compose build
+
+  up:
+    desc: コンテナを起動する
+    cmds:
+      - docker compose up -d
+
+  ps:
+    desc: 起動中のコンテナを表示する
+    cmds:
+      - docker compose ps
+
+  stop:
+    desc: 起動中のコンテナを停止する
+    cmds:
+      - docker compose stop
+
+  rm:
+    desc: 起動中のコンテナを削除する
+    cmds:
+      - docker compose rm
+
+  down:
+    desc: 起動中のコンテナを停止して削除する
+    cmds:
+      - docker compose down
+
+  down-orphans:
+    desc: 起動中のコンテナを停止して削除する（未使用のボリュームも削除）
+    cmds:
+      - docker compose down --rmi all --volumes --remove-orphans
+
+  logs:
+    desc: 起動中のコンテナのログを表示する
+    cmds:
+      - docker compose logs
