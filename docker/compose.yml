@@ -53,7 +53,7 @@ services:
       - opensearch-net
 
   opensearch-dashboards:
-    image: opensearchproject/opensearch:2.19.1
+    image: opensearchproject/opensearch-dashboards:2.19.1
     container_name: opensearch-dashboards
     ports:
       - 5601:5601
