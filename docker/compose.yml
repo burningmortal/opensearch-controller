@@ -54,7 +54,7 @@ services:
 
   opensearch-dashboards:
     image: opensearchproject/opensearch:2.19.1
-    container_name: opensearch_dashboards
+    container_name: opensearch-dashboards
     ports:
       - 5601:5601
     expose:
