@@ -11,6 +11,10 @@
     {
       "name": "requests",
       "path": "requests"
+    },
+    {
+      "name": "parser",
+      "path": "parser"
     }
   ],
   "settings": {
