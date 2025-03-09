@@ -10,6 +10,8 @@ const schema = z.object({
 
 export type SearchDocument = z.infer<typeof schema>;
 
+export type SearchDocumentBody = Omit<SearchDocument, 'id'>;
+
 export type DocumentValidateResult = { isOk: true; value: SearchDocument } | { isOk: false };
 
 export const validateDocument = (value: any): DocumentValidateResult => {

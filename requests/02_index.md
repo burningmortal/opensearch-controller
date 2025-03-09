@@ -19,8 +19,11 @@ Authorization: Basic {{user}}:{{password}}
       "summary": {
         "type": "text"
       },
-      "path": {
+      "link": {
         "type": "keyword"
+      },
+      "author": {
+        "type": "text"
       }
     }
   }

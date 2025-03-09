@@ -20,6 +20,7 @@ Authorization: Basic {{user}}:{{password}}
 {
   "query": {
     "match_all": {}
-  }
+  },
+  "size": 10000
 }
 ```
