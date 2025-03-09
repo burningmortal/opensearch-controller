@@ -66,3 +66,14 @@ DELETE {{host}}/{{index_name}}
 Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 ```
+
+## インデックスマッピング確認
+
+```http
+
+@index_name = articles
+
+GET {{host}}/{{index_name}}/_mapping
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```
