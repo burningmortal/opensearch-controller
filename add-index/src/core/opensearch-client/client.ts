@@ -28,4 +28,8 @@ export class OpenSearchClient {
       throw { isOk: false, error: { type: 'Unknown' } };
     }
   }
+
+  searchAll(index: string) {
+    return this.client.search({ index, body: { query: { match_all: {} } } });
+  }
 }
