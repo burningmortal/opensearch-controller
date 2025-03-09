@@ -11,7 +11,7 @@ Authorization: Basic {{user}}:{{password}}
 ## 全検索
 
 ```http
-GET {{host}}/_search
+GET {{host}}/articles/_search
 Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 
