@@ -1,17 +1,25 @@
 {
-	"folders": [
-		{
-			"name": "root",
-			"path": "."
-		},
-		{
-			"name": "docker",
-			"path": "docker"
-		},
-		{
-			"name": "requests",
-			"path": "requests"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "docker",
+      "path": "docker"
+    },
+    {
+      "name": "requests",
+      "path": "requests"
+    }
+  ],
+  "settings": {
+    "rest-client.environmentVariables": {
+      "dev": {
+        "host": "https://localhost:9200",
+        "user": "admin",
+        "password": "F50UjL0vRYRR8o&*"
+      }
+    }
+  }
 }
