@@ -3,6 +3,14 @@
 		{
 			"name": "root",
 			"path": "."
+		},
+		{
+			"name": "docker",
+			"path": "docker"
+		},
+		{
+			"name": "requests",
+			"path": "requests"
 		}
 	],
 	"settings": {}
