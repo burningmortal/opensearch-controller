@@ -1,12 +1,6 @@
 import Parser from 'rss-parser';
-
-export type AtomItem = {
-  author: string;
-  id: string;
-  link: string;
-  summary: string;
-  title: string;
-};
+import { AtomItem } from '../model/atom-item';
+import { validate } from 'class-validator';
 
 export class AtomParser {
   private parser: Parser;
@@ -18,8 +12,16 @@ export class AtomParser {
     this.xml = xml;
   }
 
-  async parse(): Promise<AtomItem[]> {
+  async parse(): Promise<AtomItem[] | false> {
     const res = await this.parser.parseString(this.xml);
-    return res.items as unknown as AtomItem[];
+    const items = res.items as unknown as AtomItem[];
+    const instances = items.map((item) => new AtomItem(item));
+    instances.forEach(async (instance) => {
+      const validateResult = await validate(instance);
+      if (validateResult.length !== 0) {
+        return false;
+      }
+    });
+    return instances;
   }
 }
