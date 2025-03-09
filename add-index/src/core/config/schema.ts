@@ -14,7 +14,12 @@ const parsedEnv = schema.safeParse({
   opensearchUsername: process.env.OPENSEARCH_USERNAME,
   opensearchPassword: process.env.OPENSEARCH_PASSWORD,
   opensearchHostname: process.env.OPENSEARCH_HOSTNAME,
-  opensearchRejectAuthorized: z.coerce.boolean().parse(process.env.OPENSEARCH_REJECT_AUTHORIZED),
+  opensearchRejectAuthorized:
+    process.env.OPENSEARCH_REJECT_AUTHORIZED === 'true'
+      ? true
+      : process.env.OPENSEARCH_REJECT_AUTHORIZED === 'false'
+        ? false
+        : undefined,
   opensearchPort: z.coerce.number().parse(process.env.OPENSEARCH_PORT),
 });
 
