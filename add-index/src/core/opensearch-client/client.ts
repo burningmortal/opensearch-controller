@@ -30,6 +30,6 @@ export class OpenSearchClient {
   }
 
   searchAll(index: string) {
-    return this.client.search({ index, body: { query: { match_all: {} } } });
+    return this.client.search({ index, body: { query: { match_all: {} } }, size: 10000 });
   }
 }
