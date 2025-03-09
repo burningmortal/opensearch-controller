@@ -3,3 +3,5 @@ dist
 dest
 source
 .DS_Store
+.env
+.envrc
