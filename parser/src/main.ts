@@ -1,9 +1,7 @@
-import Parser from 'rss-parser';
+import { AtomParser } from './core/parser';
 
 const main = () => {
-  const parser = new Parser();
-  const xml = '';
-  parser.parseString(xml);
+  const atomParser = new AtomParser('');
 };
 
 main();
