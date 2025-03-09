@@ -1,5 +1,9 @@
+import Parser from 'rss-parser';
+
 const main = () => {
-  console.log('Hello, world!');
+  const parser = new Parser();
+  const xml = '';
+  parser.parseString(xml);
 };
 
 main();
