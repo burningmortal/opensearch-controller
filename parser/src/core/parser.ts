@@ -1,5 +1,13 @@
 import Parser from 'rss-parser';
 
+export type AtomItem = {
+  author: string;
+  id: string;
+  link: string;
+  summary: string;
+  title: string;
+};
+
 export class AtomParser {
   private parser: Parser;
 
@@ -12,6 +20,6 @@ export class AtomParser {
 
   async parse() {
     const res = await this.parser.parseString(this.xml);
-    console.log(15, res);
+    return res.items;
   }
 }
