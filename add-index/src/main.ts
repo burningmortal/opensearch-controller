@@ -30,7 +30,7 @@ const main = async () => {
   const client = new OpenSearchClient(node, { ssl: { rejectUnauthorized: env.opensearchRejectAuthorized } });
   const health = await client.health();
 
-  await insert(client);
+  // await insert(client);
 };
 
 void main();
