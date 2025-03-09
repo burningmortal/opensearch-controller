@@ -10,7 +10,8 @@ export class AtomParser {
     this.xml = xml;
   }
 
-  parse() {
-    this.parser.parseString(this.xml);
+  async parse() {
+    const res = await this.parser.parseString(this.xml);
+    console.log(15, res);
   }
 }
