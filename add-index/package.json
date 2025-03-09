@@ -1,0 +1,22 @@
+{
+  "name": "add-index",
+  "version": "1.0.0",
+  "description": "OpenSearchに一括でドキュメントを追加する",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "build": "tsc"
+  },
+  "author": "burningmortal",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "class-validator": "^0.14.1",
+    "rss-parser": "^3.13.0"
+  }
+}

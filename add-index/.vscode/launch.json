@@ -1,0 +1,12 @@
+{
+  "configurations": [
+    {
+      "name": "Launch add-index",
+      "type": "node",
+      "request": "launch",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register", "src/main.ts"],
+      "program": "${file}"
+    }
+  ]
+}

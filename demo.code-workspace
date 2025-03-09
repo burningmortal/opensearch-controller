@@ -15,6 +15,10 @@
     {
       "name": "parser",
       "path": "parser"
+    },
+    {
+      "name": "add-index",
+      "path": "add-index"
     }
   ],
   "settings": {
