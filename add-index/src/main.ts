@@ -8,6 +8,8 @@ const main = async () => {
 
   const res = await client.searchAll('articles');
   console.log(res);
+
+  const res2 = await client.search('articles');
 };
 
 void main();

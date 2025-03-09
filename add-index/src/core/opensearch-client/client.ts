@@ -54,4 +54,13 @@ export class OpenSearchClient {
       return { isOk: false, error: { type: 'Unknown' } };
     }
   }
+
+  async search(index: string) {
+    const res = await this.client.search({
+      index,
+      body: { query: { match: { summary: 'sample' } } },
+      size: 10000,
+    });
+    return res;
+  }
 }
