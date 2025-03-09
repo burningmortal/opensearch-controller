@@ -66,11 +66,11 @@ export class OpenSearchClient {
     return res;
   }
 
-  async bulkInsert<T extends Record<string, any>>(index: string, documents: T[]) {
+  async bulkInsert<T extends Record<string, any>>(index: string, documents: { [key: string]: T }) {
     try {
       const body: Bulk_RequestBody = [];
-      documents.forEach((doc, i) => {
-        body.push({ create: { _id: `W-${i.toString()}` } });
+      Object.entries(documents).forEach(([id, doc]) => {
+        body.push({ create: { _id: id } });
         body.push(doc);
       });
       const res = await this.client.bulk({ index, body });
