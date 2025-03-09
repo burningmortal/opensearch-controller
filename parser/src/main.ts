@@ -9,7 +9,10 @@ const main = async () => {
   await Promise.all(
     atomFiles.map(async (file) => {
       const atomParser = new AtomParser(file);
-      await atomParser.parse();
+      const result = await atomParser.parse();
+      result.map((item) => {
+        console.log(item.title, item.link);
+      });
     }),
   );
 };

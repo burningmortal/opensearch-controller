@@ -18,8 +18,8 @@ export class AtomParser {
     this.xml = xml;
   }
 
-  async parse() {
+  async parse(): Promise<AtomItem[]> {
     const res = await this.parser.parseString(this.xml);
-    return res.items;
+    return res.items as unknown as AtomItem[];
   }
 }
