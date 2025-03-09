@@ -5,3 +5,4 @@ source
 .DS_Store
 .env
 .envrc
+source.csv

@@ -17,11 +17,11 @@ const main = async () => {
       }
       const rows = result.map((res) =>
         [
-          `"${res.id.replace(/"/, '\\"').replace(/\n/g, ' ')}"`,
-          `"${res.title.replace(/"/, '\\"').replace(/\n/g, ' ')}"`,
-          `"${res.summary.replace(/"/, '\\"').replace(/\n/g, ' ')}"`,
-          `"${res.link.replace(/"/, '\\"').replace(/\n/g, ' ')}"`,
-          `"${res.author.replace(/"/, '\\"').replace(/\n/g, ' ')}"`,
+          `"${res.id.replace(/"/g, '\\"').replace(/\n/g, ' ')}"`,
+          `"${res.title.replace(/"/g, '\\"').replace(/\n/g, ' ')}"`,
+          `"${res.summary.replace(/"/g, '\\"').replace(/\n/g, ' ')}"`,
+          `"${res.link.replace(/"/g, '\\"').replace(/\n/g, ' ')}"`,
+          `"${res.author.replace(/"/g, '\\"').replace(/\n/g, ' ')}"`,
         ].join(','),
       );
       const csv = rows.join('\n');
