@@ -1,5 +1,5 @@
 import { Client, errors } from '@opensearch-project/opensearch';
-import { Cluster_Health_Response, Indices_Delete_Response } from '@opensearch-project/opensearch/api';
+import { Bulk_RequestBody, Cluster_Health_Response, Indices_Delete_Response } from '@opensearch-project/opensearch/api';
 import { Hit } from '@opensearch-project/opensearch/api/_types/_core.search';
 
 export type Options = { ssl: { rejectUnauthorized: boolean } };
@@ -66,8 +66,18 @@ export class OpenSearchClient {
     return res;
   }
 
-  async bulkInsert<T>(index: string, documents: T[]) {
-    return;
+  async bulkInsert<T extends Record<string, any>>(index: string, documents: T[]) {
+    try {
+      const body: Bulk_RequestBody = [];
+      documents.forEach((doc, i) => {
+        body.push({ create: { _id: `W-${i.toString()}` } });
+        body.push(doc);
+      });
+      const res = await this.client.bulk({ index, body });
+      return { isOk: true, value: res };
+    } catch (e) {
+      throw e;
+    }
   }
 
   async deleteIndex(index: string): Promise<DeleteIndexRequestResult> {
