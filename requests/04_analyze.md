@@ -77,3 +77,12 @@ GET {{host}}/{{index_name}}/_mapping
 Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 ```
+
+## プラグイン一覧
+
+```http
+
+GET {{host}}/_cat/plugins
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```
