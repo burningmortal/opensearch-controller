@@ -5,7 +5,7 @@ const schema = z.object({
   opensearchUsername: z.string(),
   opensearchPassword: z.string(),
   opensearchHostname: z.string(),
-  opensearchRejectAuthorized: z.enum(['true', 'false']).transform((val) => val === 'true'),
+  opensearchRejectAuthorized: z.boolean(),
   opensearchPort: z.number(),
 });
 
@@ -14,7 +14,7 @@ const parsedEnv = schema.safeParse({
   opensearchUsername: process.env.OPENSEARCH_USERNAME,
   opensearchPassword: process.env.OPENSEARCH_PASSWORD,
   opensearchHostname: process.env.OPENSEARCH_HOSTNAME,
-  opensearchRejectAuthorized: process.env.OPENSEARCH_REJECT_AUTHORIZED,
+  opensearchRejectAuthorized: z.coerce.boolean().parse(process.env.OPENSEARCH_REJECT_AUTHORIZED),
   opensearchPort: z.coerce.number().parse(process.env.OPENSEARCH_PORT),
 });
 
