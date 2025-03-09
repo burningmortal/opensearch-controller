@@ -37,3 +37,22 @@ Authorization: Basic {{user}}:{{password}}
 { "create": { "_index": "articles", "_id": "WK-001" } }
 { "title": "sample1", "summary": "sample summary 1", "path": "to" }
 ```
+
+## 検索
+
+```http
+
+@index_name = articles
+
+GET {{host}}/{{index_name}}/_search
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "query": {
+    "match": {
+      "title": "sample1"
+    }
+  }
+}
+```
