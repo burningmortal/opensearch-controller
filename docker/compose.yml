@@ -4,7 +4,8 @@ x-vars:
 
 services:
   openserarch-node1:
-    image: opensearchproject/opensearch:2.19.1
+    build:
+      context: .
     container_name: opensearch-node1
     environment:
       cluster.name: *OPENSEARCH_CLUSTER_NAME
@@ -30,7 +31,8 @@ services:
       - opensearch-net
 
   opensearch-node2:
-    image: opensearchproject/opensearch:2.19.1
+    build:
+      context: .
     container_name: opensearch-node2
     environment:
       cluster.name: *OPENSEARCH_CLUSTER_NAME
