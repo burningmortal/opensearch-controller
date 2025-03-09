@@ -56,3 +56,14 @@ Authorization: Basic {{user}}:{{password}}
   }
 }
 ```
+
+## インデックス削除
+
+```http
+
+@index_name = articles
+
+DELETE {{host}}/{{index_name}}
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```

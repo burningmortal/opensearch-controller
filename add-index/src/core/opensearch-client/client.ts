@@ -67,4 +67,8 @@ export class OpenSearchClient {
   async bulkInsert<T>(index: string, documents: T[]) {
     return;
   }
+
+  async deleteIndex(index: string) {
+    await this.client.indices.delete({ index });
+  }
 }
