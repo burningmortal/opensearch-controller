@@ -1,9 +1,9 @@
 import { env } from './core/config/schema';
 import { OpenSearchClient } from './core/opensearch-client/client';
 import { load } from './core/csv/loader';
-import { SearchDocument, SearchDocumentBody } from './model/document';
+import { SearchDocumentBody } from './model/document';
 
-const main = async () => {
+const insert = async (client: OpenSearchClient) => {
   const records = load('./source.csv');
   if (!records) {
     console.error('Invalid CSV');
@@ -22,10 +22,15 @@ const main = async () => {
     };
   });
 
+  await client.bulkInsert('articles', documents);
+};
+
+const main = async () => {
   const node = `${env.opensearchProtocol}://${env.opensearchUsername}:${env.opensearchPassword}@${env.opensearchHostname}:${env.opensearchPort}`;
   const client = new OpenSearchClient(node, { ssl: { rejectUnauthorized: env.opensearchRejectAuthorized } });
   const health = await client.health();
-  await client.bulkInsert('articles', documents);
+
+  await insert(client);
 };
 
 void main();
