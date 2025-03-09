@@ -63,4 +63,8 @@ export class OpenSearchClient {
     });
     return res;
   }
+
+  async bulkInsert<T>(index: string, documents: T[]) {
+    return;
+  }
 }
