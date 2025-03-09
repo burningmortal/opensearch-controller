@@ -6,7 +6,8 @@
       "request": "launch",
       "skipFiles": ["<node_internals>/**", "node_modules/**"],
       "runtimeArgs": ["--nolazy", "-r", "ts-node/register", "src/main.ts"],
-      "program": "${file}"
+      "program": "${file}",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
