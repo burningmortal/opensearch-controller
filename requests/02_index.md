@@ -9,12 +9,35 @@ Authorization: Basic {{user}}:{{password}}
 
 {
   "settings": {
-    "index.number_of_shards": 1
+    "index.number_of_shards": 1,
+    "analysis": {
+      "char_filter": {
+        "normalize": {
+          "type": "icu_normalizer",
+          "name": "nfkc",
+          "mode": "compose"
+        }
+      },
+      "analyzer": {
+        "kuromoji_analyzer": {
+          "type": "custom",
+          "char_filter": [
+            "normalize"
+          ],
+          "tokenizer": "kuromoji_tokenizer",
+          "filter": [
+            "kuromoji_readingform"
+          ]
+        }
+      }
+    }
   },
   "mappings": {
     "properties": {
       "title": {
-        "type": "text"
+        "type": "text",
+        "analyzer": "kuromoji_analyzer",
+        "search_analyzer": "kuromoji_analyzer"
       },
       "summary": {
         "type": "text"

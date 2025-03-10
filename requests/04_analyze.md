@@ -71,7 +71,7 @@ Authorization: Basic {{user}}:{{password}}
 
 ```http
 
-@index_name = articles
+@index_name = articles_analyze
 
 GET {{host}}/{{index_name}}/_mapping
 Content-Type: application/json
