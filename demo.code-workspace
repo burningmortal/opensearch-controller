@@ -19,6 +19,10 @@
     {
       "name": "add-index",
       "path": "add-index"
+    },
+    {
+      "name": "sentence-transformers-api",
+      "path": "sentence-transformers-api"
     }
   ],
   "settings": {
