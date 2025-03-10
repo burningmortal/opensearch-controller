@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  start:
+    desc: サーバを起動する
+    cmds:
+      - poetry run uvicorn main:app --reload
