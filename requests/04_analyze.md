@@ -11,7 +11,7 @@ Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 
 {
-  "text": "何卒ご理解賜りますようお願い申し上げます"
+  "text": "被災地の岩手県の大船渡"
 }
 ```
 
@@ -60,7 +60,7 @@ Authorization: Basic {{user}}:{{password}}
 
 ```http
 
-@index_name = articles_analyze
+@index_name = articles
 
 DELETE {{host}}/{{index_name}}
 Content-Type: application/json
