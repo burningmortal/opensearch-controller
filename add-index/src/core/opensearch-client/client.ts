@@ -116,4 +116,9 @@ export class OpenSearchClient {
       return { isOk: false, error: { type: 'Unknown' } };
     }
   }
+
+  async analyze(index: string, text: string) {
+    const res = await this.client.indices.analyze({ index, body: { text } });
+    return res;
+  }
 }
