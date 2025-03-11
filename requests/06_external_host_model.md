@@ -283,6 +283,26 @@ Authorization: Basic {{user}}:{{password}}
 { "title_text": "たくさんの人" }
 { "create": { "_index": "articles-nlp-local1", "_id": "a3" } }
 { "title_text": "群衆" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a4" } }
+{ "title_text": "りんご" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a5" } }
+{ "title_text": "西瓜" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a6" } }
+{ "title_text": "グレープフルーツ" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a7" } }
+{ "title_text": "グレープ" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a8" } }
+{ "title_text": "ブドウ" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a9" } }
+{ "title_text": "取り扱い説明書" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a10" } }
+{ "title_text": "取扱説明書" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a11" } }
+{ "title_text": "説明書" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a12" } }
+{ "title_text": "ユーザーマニュアル" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a13" } }
+{ "title_text": "ガイドライン" }
 ```
 
 ## インデックス全検索
@@ -340,7 +360,7 @@ Authorization: Basic {{user}}:{{password}}
 
 ```http
 
-@word = お菓子
+@word = ガイドライン
 
 GET {{host}}/articles-nlp-local1/_search?search_pipeline=nlp-article-search-pipeline-local1
 Content-Type: application/json
