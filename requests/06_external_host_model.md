@@ -151,7 +151,7 @@ Authorization: Basic {{user}}:{{password}}
         "Content-Type": "application/json"
       },
       "request_body": "{ \"text\": \"${parameters.title_text}\" }",
-      "pre_process_function": " \n return '{' + '\"parameters\":' + '{' + '\"title_text\":\"${params.title_text}\"' + '}' + '}' "
+      "pre_process_function": " \n return '{' + '\"parameters\":' + '{' + '\"title_text\":\"' + params.text_docs[0] + '\"' + '}' + '}' "
     }
   ]
 }
@@ -255,7 +255,7 @@ Content-Type: application/x-ndjson
 Authorization: Basic {{user}}:{{password}}
 
 { "create": { "_index": "articles-nlp-local1", "_id": "a1" } }
-{ "title_text": "たいとる！！" }
+{ "title_text": "その他大勢" }
 ```
 
 ## インデックス全検索
