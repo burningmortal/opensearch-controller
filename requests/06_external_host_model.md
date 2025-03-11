@@ -54,7 +54,7 @@ Authorization: Basic {{user}}:{{password}}
       "headers": {
         "Content-Type": "application/json"
       },
-      "request_body": "{ \"text\": \"${parameters.title_text}\" }"
+      "request_body": "{ \"text\": \"${parameters.messages}\" }"
     }
   ]
 }
@@ -132,6 +132,16 @@ Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 
 {
+  "name": "local connector 1",
+  "description": "ローカルのmebeddingサーバに接続するコネクタ",
+  "version": 1,
+  "protocol": "http",
+  "parameters": {
+    "endpoint": "host.docker.internal:8000"
+  },
+  "credential": {
+    "type": "none"
+  },
   "actions": [
     {
       "action_type": "predict",
@@ -140,7 +150,8 @@ Authorization: Basic {{user}}:{{password}}
       "headers": {
         "Content-Type": "application/json"
       },
-      "request_body": "{ \"text\": \"${parameters.title_text}\" }"
+      "request_body": "{ \"text\": \"${parameters.title_text}\" }",
+      "pre_process_function": " \n return '{' + '\"parameters\":' + '{' + '\"title_text\":\"${params.title_text}\"' + '}' + '}' "
     }
   ]
 }
