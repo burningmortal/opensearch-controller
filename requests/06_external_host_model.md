@@ -54,7 +54,7 @@ Authorization: Basic {{user}}:{{password}}
       "headers": {
         "Content-Type": "application/json"
       },
-      "request_body": "{ \"text\": \"てすとテスト\" }"
+      "request_body": "{ \"text\": \"${parameters.text}\" }"
     }
   ]
 }
@@ -111,7 +111,37 @@ Authorization: Basic {{user}}:{{password}}
 
 {
   "parameters": {
-    "text": "aaaa"
+    "text": "叶わないよ"
   }
+}
+```
+
+## モデルをアンデプロイする taskId: xg_-hZUBrZev78hO5YFt
+
+```http
+POST {{host}}/_plugins/_ml/models/wg_8hZUBrZev78hOhoGI/_undeploy
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```
+
+## コネクタ更新 wA_7hZUBrZev78hONIE7
+
+```http
+PUT {{host}}/_plugins/_ml/connectors/wA_7hZUBrZev78hONIE7
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "actions": [
+    {
+      "action_type": "predict",
+      "method": "POST",
+      "url": "http://${parameters.endpoint}/encode",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "request_body": "{ \"text\": \"${parameters.text}\" }"
+    }
+  ]
 }
 ```

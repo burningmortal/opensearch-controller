@@ -15,5 +15,6 @@ def health():
 
 @app.post("/encode")
 async def encode_text(input: TextInput):
+  print(input)
   embedding = model.encode(input.text)
   return {"embedding": embedding.tolist()}
