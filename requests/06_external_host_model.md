@@ -145,3 +145,10 @@ Authorization: Basic {{user}}:{{password}}
   ]
 }
 ```
+
+ここまででモデルを使ってembeddingを計算できるようになった
+
+データの取り込み時にembeddingの計算を同時に行い、インデックスに保存されるようにしたい
+
+---------
+
