@@ -124,6 +124,14 @@ Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 ```
 
+## モデルをデプロイする taskId: xg_-hZUBrZev78hO5YFt
+
+```http
+POST {{host}}/_plugins/_ml/models/wg_8hZUBrZev78hOhoGI/_deploy
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```
+
 ## コネクタ更新 wA_7hZUBrZev78hONIE7
 
 ```http
@@ -151,7 +159,8 @@ Authorization: Basic {{user}}:{{password}}
         "Content-Type": "application/json"
       },
       "request_body": "{ \"text\": \"${parameters.title_text}\" }",
-      "pre_process_function": " \n return '{' + '\"parameters\":' + '{' + '\"title_text\":\"' + params.text_docs[0] + '\"' + '}' + '}' "
+      "pre_process_function": " \n return '{' + '\"parameters\":' + '{' + '\"title_text\":\"' + params.text_docs[0] + '\"' + '}' + '}' ",
+      "post_process_function": "\n return params.title_embedding"
     }
   ]
 }
