@@ -54,7 +54,7 @@ Authorization: Basic {{user}}:{{password}}
       "headers": {
         "Content-Type": "application/json"
       },
-      "request_body": "{ \"text\": \"${parameters.text}\" }"
+      "request_body": "{ \"text\": \"${parameters.title_text}\" }"
     }
   ]
 }
@@ -111,7 +111,7 @@ Authorization: Basic {{user}}:{{password}}
 
 {
   "parameters": {
-    "text": "叶わないよ"
+    "title_text": "叶わないよ"
   }
 }
 ```
@@ -140,7 +140,7 @@ Authorization: Basic {{user}}:{{password}}
       "headers": {
         "Content-Type": "application/json"
       },
-      "request_body": "{ \"text\": \"${parameters.text}\" }"
+      "request_body": "{ \"text\": \"${parameters.title_text}\" }"
     }
   ]
 }
@@ -152,3 +152,118 @@ Authorization: Basic {{user}}:{{password}}
 
 ---------
 
+## 取り込みパイプラインを作成する
+
+```http
+PUT {{host}}/_ingest/pipeline/nlp-article-ingest-pipeline-local1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "description": "ローカルでホストしているembeddingモデルの結果を取得するためのパイプライン",
+  "processors": [
+    {
+      "text_embedding": {
+        "model_id": "wg_8hZUBrZev78hOhoGI",
+        "field_map": {
+          "title_text": "title_embedding"
+        },
+        "batch_size": 5
+      }
+    }
+  ]
+}
+```
+
+## インデックスを作成する
+
+```http
+PUT {{host}}/articles-nlp-local1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "knn": true,
+      "knn.algo_param.ef_search": 100
+    },
+    "analysis": {
+      "char_filter": {
+        "normalize": {
+          "type": "icu_normalizer",
+          "name": "nfkc",
+          "mode": "compose"
+        }
+      },
+      "analyzer": {
+        "kuromoji_analyzer": {
+          "type": "custom",
+          "char_filter": [
+            "normalize"
+          ],
+          "tokenizer": "kuromoji_tokenizer",
+          "filter": [
+            "kuromoji_readingform"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "title_text": {
+        "type": "text",
+        "analyzer": "kuromoji_analyzer",
+        "search_analyzer": "kuromoji_analyzer"
+      },
+      "title_embedding": {
+        "type": "knn_vector",
+        "dimension": 384,
+        "method": {
+          "engine": "nmslib",
+          "space_type": "l2",
+          "name": "hnsw",
+          "parameters": {
+            "ef_construction": 128,
+            "m": 24
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## インデックスにドキュメントを入れる
+
+```http
+POST {{host}}/_bulk?batch_size=5&pipeline=nlp-article-ingest-pipeline-local1
+Content-Type: application/x-ndjson
+Authorization: Basic {{user}}:{{password}}
+
+{ "create": { "_index": "articles-nlp-local1", "_id": "a1" } }
+{ "title_text": "たいとる！！" }
+```
+
+## インデックス全検索
+
+```http
+GET {{host}}/articles-nlp-local1/_search
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+## インデックス削除
+
+```http
+DELETE {{host}}/articles-nlp-local1
+Authorization: Basic {{user}}:{{password}}
+```
