@@ -160,7 +160,7 @@ Authorization: Basic {{user}}:{{password}}
       },
       "request_body": "{ \"text\": \"${parameters.title_text}\" }",
       "pre_process_function": " \n return '{' + '\"parameters\":' + '{' + '\"title_text\":\"' + params.text_docs[0] + '\"' + '}' + '}' ",
-      "post_process_function": "\n return params.title_embedding"
+      "post_process_function": "connector.post_process.default.embedding"
     }
   ]
 }
@@ -193,6 +193,13 @@ Authorization: Basic {{user}}:{{password}}
     }
   ]
 }
+```
+
+## インデックス削除
+
+```http
+DELETE {{host}}/articles-nlp-local1
+Authorization: Basic {{user}}:{{password}}
 ```
 
 ## インデックスを作成する
