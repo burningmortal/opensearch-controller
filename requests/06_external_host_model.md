@@ -293,6 +293,9 @@ Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 
 {
+  "_source": {
+    "exclude": "title_embedding"
+  },
   "query": {
     "match_all": {}
   }
