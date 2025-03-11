@@ -202,6 +202,13 @@ DELETE {{host}}/articles-nlp-local1
 Authorization: Basic {{user}}:{{password}}
 ```
 
+## インデックスのマッピングを見る
+
+```http
+GET {{host}}/articles-nlp-local1
+Authorization: Basic {{user}}:{{password}}
+```
+
 ## インデックスを作成する
 
 ```http
@@ -272,6 +279,10 @@ Authorization: Basic {{user}}:{{password}}
 
 { "create": { "_index": "articles-nlp-local1", "_id": "a1" } }
 { "title_text": "その他大勢" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a2" } }
+{ "title_text": "たくさんの人" }
+{ "create": { "_index": "articles-nlp-local1", "_id": "a3" } }
+{ "title_text": "群衆" }
 ```
 
 ## インデックス全検索
@@ -293,4 +304,70 @@ Authorization: Basic {{user}}:{{password}}
 ```http
 DELETE {{host}}/articles-nlp-local1
 Authorization: Basic {{user}}:{{password}}
+```
+
+## 検索パイプラインを作る
+
+```http
+PUT {{host}}/_search/pipeline/nlp-article-search-pipeline-local1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "description": "検索パイプライン　ローカル用",
+  "phase_results_processors": [
+    {
+      "normalization-processor": {
+        "normalization": {
+          "technique": "min_max"
+        },
+        "combination": {
+          "technique": "arithmetic_mean",
+          "parameters": {
+            "weights": [0.3, 0.7]
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+## ハイブリッド検索する
+
+```http
+
+@word = お菓子
+
+GET {{host}}/articles-nlp-local1/_search?search_pipeline=nlp-article-search-pipeline-local1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "_source": {
+    "exclude": "title_embedding"
+  },
+  "query": {
+    "hybrid": {
+      "queries": [
+        {
+          "match": {
+            "title_text": {
+              "query": "{{word}}"
+            }
+          }
+        },
+        {
+          "neural": {
+            "title_embedding": {
+              "query_text": "{{word}}",
+              "model_id": "wg_8hZUBrZev78hOhoGI",
+              "k": 5
+            }
+          }
+        }
+      ]
+    }
+  }
+}
 ```
