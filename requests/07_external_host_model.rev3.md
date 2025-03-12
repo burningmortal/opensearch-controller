@@ -187,7 +187,16 @@ Authorization: Basic {{user}}:{{password}}
       "text_embedding": {
         "model_id": "gyzcipUBNSyaBaroHlTJ",
         "field_map": {
-          "text": "embeddings"
+          "name.text": "embeddings"
+        },
+        "batch_size": 5
+      }
+    },
+    {
+      "text_embedding": {
+        "model_id": "gyzcipUBNSyaBaroHlTJ",
+        "field_map": {
+          "album.name.text": "embeddings"
         },
         "batch_size": 5
       }
