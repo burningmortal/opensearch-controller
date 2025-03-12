@@ -334,10 +334,8 @@ POST {{host}}/_bulk?batch_size=5&pipeline=nlp-spotify-playlist-ingest-pipeline-l
 Content-Type: application/x-ndjson
 Authorization: Basic {{user}}:{{password}}
 
-{ "create": { "_index": "bookmarks-nlp-lg1", "_id": "BOOKMARK-0001" } }
-{ "text": "「ラーメン１杯が…」万博グルメの高額指摘に吉村洋文知事「ここでしか食べれない」必死の訴え - 社会 : 日刊スポーツ" }
-{ "create": { "_index": "bookmarks-nlp-lg1", "_id": "BOOKMARK-0002" } }
-{ "text": "MCPで広がるLLM　~Clineでの動作原理~" }
+{ "create": { "_index": "spotify-playlist-nlp-lg1", "_id": "TRACK-0001" } }
+{ "track_id": "07IDjll9GzDoaON2h9SmiD", "name": { "text": "すみれ September Love(2006リマスタリング)" }, "album": { "name": { "text": "RADIO FANTASY +4" } }, "artists": [ { "name": { "text": "Ippu-Do" } } ] }
 ```
 
 ### インデックスを全検索する
