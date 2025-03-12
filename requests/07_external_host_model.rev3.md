@@ -244,21 +244,81 @@ Authorization: Basic {{user}}:{{password}}
   },
   "mappings": {
     "properties": {
-      "text": {
-        "type": "text",
-        "analyzer": "kuromoji_analyzer",
-        "search_analyzer": "kuromoji_analyzer"
+      "track_id": {
+        "type": "keyword"
       },
-      "embeddings": {
-        "type": "knn_vector",
-        "dimension": 1024,
-        "method": {
-          "engine": "nmslib",
-          "space_type": "l2",
-          "name": "hnsw",
-          "parameters": {
-            "ef_construction": 128,
-            "m": 24
+      "name": {
+        "properties": {
+          "text": {
+            "type": "text",
+            "analyzer": "kuromoji_analyzer",
+            "search_analyzer": "kuromoji_analyzer"
+          },
+          "embeddings": {
+            "type": "knn_vector",
+            "dimension": 1024,
+            "method": {
+              "engine": "nmslib",
+              "space_type": "l2",
+              "name": "hnsw",
+              "parameters": {
+                "ef_construction": 128,
+                "m": 24
+              }
+            }
+          }
+        }
+      },
+      "album": {
+        "properties": {
+          "name": {
+            "properties": {
+              "text": {
+                "type": "text",
+                "analyzer": "kuromoji_analyzer",
+                "search_analyzer": "kuromoji_analyzer"
+              },
+              "embeddings": {
+                "type": "knn_vector",
+                "dimension": 1024,
+                "method": {
+                  "engine": "nmslib",
+                  "space_type": "l2",
+                  "name": "hnsw",
+                  "parameters": {
+                    "ef_construction": 128,
+                    "m": 24
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "artists": {
+        "type": "nested",
+        "properties": {
+          "name": {
+            "properties": {
+              "text": {
+                "type": "text",
+                "analyzer": "kuromoji_analyzer",
+                "search_analyzer": "kuromoji_analyzer"
+              },
+              "embeddings": {
+                "type": "knn_vector",
+                "dimension": 1024,
+                "method": {
+                  "engine": "nmslib",
+                  "space_type": "l2",
+                  "name": "hnsw",
+                  "parameters": {
+                    "ef_construction": 128,
+                    "m": 24
+                  }
+                }
+              }
+            }
           }
         }
       }
