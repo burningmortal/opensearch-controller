@@ -108,3 +108,57 @@ Authorization: Basic {{user}}:{{password}}
   ]
 }
 ```
+
+## モデル作成
+
+### モデル一覧
+
+```http
+GET {{host}}/_plugins/_ml/models/_search
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+### モデル作る
+
+```http
+POST {{host}}/_plugins/_ml/models/_register
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "name": "multilingual-e5-large",
+  "function_name": "remote",
+  "model_group_id": "Xiy_ipUBNSyaBarovVSi",
+  "description": "localhostのembeddingモデルAPI",
+  "connector_id": "XyzBipUBNSyaBaro21R8"
+}
+```
+
+### モデルをデプロイする
+
+```http
+POST {{host}}/_plugins/_ml/models/YSzEipUBNSyaBarozFQM/_deploy
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```
+
+### モデルテスト
+
+```http
+POST {{host}}/_plugins/_ml/models/YSzEipUBNSyaBarozFQM/_predict
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "parameters": {
+    "text": "大胆で見え透いた強がりも まあいいよ"
+  }
+}
+```
