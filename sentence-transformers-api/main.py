@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 
 app = FastAPI()
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer("intfloat/multilingual-e5-large")
 
 class TextInput(BaseModel):
   text: str
