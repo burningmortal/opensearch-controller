@@ -1,0 +1,339 @@
+{
+  "url": "https://open.spotify.com/playlist/0THu9AUxyZHki6O4c8zo0B",
+  "image": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cae42789c7e3c9df6635012e1",
+  "name": "プレプレプレイリスト",
+  "owner": {
+    "name": "やさうさちゃん"
+  },
+  "tracks": [
+    {
+      "addedAt": "2023-09-25T10:18:18Z",
+      "duration": 231560,
+      "id": "07IDjll9GzDoaON2h9SmiD",
+      "name": "すみれ September Love(2006リマスタリング)",
+      "album": {
+        "name": "RADIO FANTASY +4",
+        "releaseDate": "2013-11-27",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273fdbff7f43bc0b9b36f8ba826"
+      },
+      "artists": [
+        {
+          "name": "Ippu-Do"
+        }
+      ],
+      "popularity": 33
+    },
+    {
+      "addedAt": "2023-09-25T10:18:20Z",
+      "duration": 210000,
+      "id": "7jl7vQ3srkDjFunnjcY8xi",
+      "name": "シミュラクラ現象",
+      "album": {
+        "name": "シミュラクラ現象",
+        "releaseDate": "2023-09-13",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b2731a69aa37b35dc6d159b5622c"
+      },
+      "artists": [
+        {
+          "name": "みいらみさと"
+        }
+      ],
+      "popularity": 3
+    },
+    {
+      "addedAt": "2023-09-25T10:18:21Z",
+      "duration": 177259,
+      "id": "5tJasimBMGlOR9y15v1ATu",
+      "name": "trank",
+      "album": {
+        "name": "trank",
+        "releaseDate": "2023-09-13",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b27329be31aee47c7c7b7e95ef24"
+      },
+      "artists": [
+        {
+          "name": "a子"
+        }
+      ],
+      "popularity": 30
+    },
+    {
+      "addedAt": "2023-09-25T13:13:16Z",
+      "duration": 406103,
+      "id": "6ad7bQ48TlqAgebCExUJVe",
+      "name": "いきのこり●ぼくら",
+      "album": {
+        "name": "０",
+        "releaseDate": "2013-10-23",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273d79390609d8815d0400fec97"
+      },
+      "artists": [
+        {
+          "name": "Ichiko Aoba"
+        }
+      ],
+      "popularity": 54
+    },
+    {
+      "addedAt": "2023-09-25T13:15:49Z",
+      "duration": 149226,
+      "id": "7ph7HRUsxYcKLRFTaYCQYQ",
+      "name": "ロマンス宣言",
+      "album": {
+        "name": "祝祭",
+        "releaseDate": "2018-04-25",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b2733664c9f4d2278af25c5a4796"
+      },
+      "artists": [
+        {
+          "name": "Kaneko Ayano"
+        }
+      ],
+      "popularity": 51
+    },
+    {
+      "addedAt": "2023-09-25T13:22:31Z",
+      "duration": 234838,
+      "id": "0V5kFldSIF9Av90MN7mlF3",
+      "name": "このまま夢で",
+      "album": {
+        "name": "このまま夢で",
+        "releaseDate": "2020-02-12",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273da88c6fa407f3eabb7068bff"
+      },
+      "artists": [
+        {
+          "name": "Shin Sakiura"
+        },
+        {
+          "name": "AAAMYYY"
+        }
+      ],
+      "popularity": 0
+    },
+    {
+      "addedAt": "2023-09-25T13:23:20Z",
+      "duration": 269653,
+      "id": "2iDjKR2fXQyODcDKUMoWHK",
+      "name": "まともがわからない",
+      "album": {
+        "name": "まともがわからない",
+        "releaseDate": "2013-01-11",
+        "artwork": "https://i.scdn.co/image/1c99c56b6151312cc4b5ca21d919a7ad30dea562"
+      },
+      "artists": [
+        {
+          "name": "Shintaro Sakamoto"
+        }
+      ],
+      "popularity": 30
+    },
+    {
+      "addedAt": "2023-09-25T13:24:52Z",
+      "duration": 255773,
+      "id": "0KhvS8AYamoxfbIk8pLVKv",
+      "name": "Lucky",
+      "album": {
+        "name": "16/50 1997〜1999",
+        "releaseDate": "1997",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273f9c5b9623d0b04bae364f769"
+      },
+      "artists": [
+        {
+          "name": "Supercar"
+        }
+      ],
+      "popularity": 33
+    },
+    {
+      "addedAt": "2023-09-25T13:25:14Z",
+      "duration": 328586,
+      "id": "0lxEVfWUdKaGrFbUnuQXU9",
+      "name": "痛いよ",
+      "album": {
+        "name": "WORLD",
+        "releaseDate": "2010-02-17",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b27328d19ceea8ec3f7b1001d828"
+      },
+      "artists": [
+        {
+          "name": "Ryujin Kiyoshi"
+        }
+      ],
+      "popularity": 31
+    },
+    {
+      "addedAt": "2023-09-25T13:26:36Z",
+      "duration": 409411,
+      "id": "2Tjb3rNYfj1WjEXmpwg7XR",
+      "name": "ドリーミン京浜東北ライン7\" (feat. マリナ)",
+      "album": {
+        "name": "ドリーミン京浜東北ライン7\" (feat. マリナ)",
+        "releaseDate": "2015-09-16",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273bf74b6b164c5b3ee26f4704b"
+      },
+      "artists": [
+        {
+          "name": "ビーフ"
+        },
+        {
+          "name": "マリナ"
+        }
+      ],
+      "popularity": 2
+    },
+    {
+      "addedAt": "2023-09-25T13:27:08Z",
+      "duration": 283080,
+      "id": "7ehyW3pFPrOOA8SoxtMJ0j",
+      "name": "Tip Taps Tip",
+      "album": {
+        "name": "サイボーグ俺達",
+        "releaseDate": "2007-07-18",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273736001e479581b6e9161f4c3"
+      },
+      "artists": [
+        {
+          "name": "HALCALI"
+        }
+      ],
+      "popularity": 0
+    },
+    {
+      "addedAt": "2023-09-25T13:31:29Z",
+      "duration": 188933,
+      "id": "6G14eKIrj6tcIABSH87XlB",
+      "name": "地獄先生",
+      "album": {
+        "name": "ハイファイ新書",
+        "releaseDate": "2009-01-07",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b2731cf4befdbc37b763e98e437b"
+      },
+      "artists": [
+        {
+          "name": "Soutaiseiriron"
+        }
+      ],
+      "popularity": 46
+    },
+    {
+      "addedAt": "2023-09-25T13:31:40Z",
+      "duration": 231290,
+      "id": "3comDuGodE3GrGHTIQwYRw",
+      "name": "balloon",
+      "album": {
+        "name": "卒業と、それまでのうとうと",
+        "releaseDate": "2012-11-29",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273454fa3b3811fc02cb4d3cd26"
+      },
+      "artists": [
+        {
+          "name": "Izumi Makura"
+        }
+      ],
+      "popularity": 19
+    },
+    {
+      "addedAt": "2023-09-25T13:31:56Z",
+      "duration": 211306,
+      "id": "7dd5t8BwNlVSnBQuD0P9BP",
+      "name": "スピーカーボーイ",
+      "album": {
+        "name": "2013ねん、なつ",
+        "releaseDate": "2013-07-30",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273125bd2a0b184189eb0c1e547"
+      },
+      "artists": [
+        {
+          "name": "Phenotas"
+        }
+      ],
+      "popularity": 14
+    },
+    {
+      "addedAt": "2023-09-25T13:32:01Z",
+      "duration": 172960,
+      "id": "11m2QLfslKX1fGKZhJXeX7",
+      "name": "プリチー",
+      "album": {
+        "name": "プリチー",
+        "releaseDate": "2014-10-08",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273c4f4dc77bed94c42d33af0d4"
+      },
+      "artists": [
+        {
+          "name": "Akasick"
+        }
+      ],
+      "popularity": 24
+    },
+    {
+      "addedAt": "2023-09-25T13:33:02Z",
+      "duration": 226949,
+      "id": "5Ufg8wsWzCKwyL4Mx0RLRs",
+      "name": "それは月曜日の9時のように",
+      "album": {
+        "name": "octave",
+        "releaseDate": "2019-09-11",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273a2f066830e2f6a814008a323"
+      },
+      "artists": [
+        {
+          "name": "桜エビ~ず"
+        }
+      ],
+      "popularity": 0
+    },
+    {
+      "addedAt": "2023-09-25T13:33:54Z",
+      "duration": 226307,
+      "id": "3B4N3yCMgIqHjCH2fCY7PM",
+      "name": "ゲイン",
+      "album": {
+        "name": "リビングデッド",
+        "releaseDate": "2023-05-24",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b2736549faa38767df636f0a5802"
+      },
+      "artists": [
+        {
+          "name": "きのホ。"
+        }
+      ],
+      "popularity": 10
+    },
+    {
+      "addedAt": "2023-09-25T13:34:51Z",
+      "duration": 246224,
+      "id": "3uIzAio3BLpucSCpGfAFt0",
+      "name": "きっとね！",
+      "album": {
+        "name": "AINOU",
+        "releaseDate": "2018-11-07",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b273702eb954df8f3827d1fc80b2"
+      },
+      "artists": [
+        {
+          "name": "中村佳穂"
+        }
+      ],
+      "popularity": 0
+    },
+    {
+      "addedAt": "2023-09-25T13:35:29Z",
+      "duration": 273080,
+      "id": "0bUFrriIJQvPDiFwY30z8l",
+      "name": "YES－NO",
+      "album": {
+        "name": "FANTASY",
+        "releaseDate": "2007-01-17",
+        "artwork": "https://i.scdn.co/image/ab67616d0000b27349b4a1ebd2613d6cf5655587"
+      },
+      "artists": [
+        {
+          "name": "Chara"
+        }
+      ],
+      "popularity": 21
+    }
+  ]
+}
