@@ -279,3 +279,87 @@ Authorization: Basic {{user}}:{{password}}
 { "create": { "_index": "bookmarks-nlp-lg1", "_id": "BOOKMARK-0002" } }
 { "text": "MCPで広がるLLM　~Clineでの動作原理~" }
 ```
+
+### インデックスを全検索する
+
+```http
+GET {{host}}/bookmarks-nlp-lg1/_search
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "_source": {
+    "exclude": "embeddings"
+  },
+  "query": {
+    "match_all": {}
+  }
+}
+```
+
+## 検索
+
+### 検索パイプライン作る
+
+```http
+PUT {{host}}/_search/pipeline/nlp-bookmarks-search-pipeline-lg1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "description": "検索パイプライン",
+  "phase_results_processors": [
+    {
+      "normalization-processor": {
+        "normalization": {
+          "technique": "min_max"
+        },
+        "combination": {
+          "technique": "arithmetic_mean",
+          "parameters": {
+            "weights": [0.7, 0.3]
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+### ハイブリッド検索する
+
+```http
+@word = macos
+
+GET {{host}}/bookmarks-nlp-lg1/_search?search_pipeline=nlp-bookmarks-search-pipeline-lg1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "_source": {
+    "exclude": ["embeddings"]
+  },
+  "query": {
+    "hybrid": {
+      "queries": [
+        {
+          "match": {
+            "text": {
+              "query": "{{word}}"
+            }
+          }
+        },
+        {
+          "neural": {
+            "embeddings": {
+              "query_text": "{{word}}",
+              "model_id": "gyzcipUBNSyaBaroHlTJ",
+              "k": 5
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
