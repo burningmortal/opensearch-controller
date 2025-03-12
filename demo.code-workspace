@@ -23,6 +23,10 @@
     {
       "name": "sentence-transformers-api",
       "path": "sentence-transformers-api"
+    },
+    {
+      "name": "spotify-scraper",
+      "path": "spotify-scraper"
     }
   ],
   "settings": {
