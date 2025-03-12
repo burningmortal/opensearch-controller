@@ -102,7 +102,7 @@ Authorization: Basic {{user}}:{{password}}
         "Content-Type": "application/json"
       },
       "request_body": "{ \"text\": \"${parameters.text}\" }",
-      "pre_process_function": "\n return '{' + '\"parameters\"' + '{' + params.text_docs[0] + '}' + '}' ",
+      "pre_process_function": "\n return '{' + '\"parameters\":' + '{' + '\"text\":\"' +  params.text_docs[0] + '\"}' + '}' ",
       "post_process_function": "connector.post_process.default.embedding"
     }
   ]
@@ -137,14 +137,14 @@ Authorization: Basic {{user}}:{{password}}
   "function_name": "remote",
   "model_group_id": "Xiy_ipUBNSyaBarovVSi",
   "description": "localhostのembeddingモデルAPI",
-  "connector_id": "XyzBipUBNSyaBaro21R8"
+  "connector_id": "gSzbipUBNSyaBaro7lTi"
 }
 ```
 
 ### モデルをデプロイする
 
 ```http
-POST {{host}}/_plugins/_ml/models/YSzEipUBNSyaBarozFQM/_deploy
+POST {{host}}/_plugins/_ml/models/gyzcipUBNSyaBaroHlTJ/_deploy
 Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 ```
@@ -152,7 +152,7 @@ Authorization: Basic {{user}}:{{password}}
 ### モデルテスト
 
 ```http
-POST {{host}}/_plugins/_ml/models/YSzEipUBNSyaBarozFQM/_predict
+POST {{host}}/_plugins/_ml/models/gyzcipUBNSyaBaroHlTJ/_predict
 Content-Type: application/json
 Authorization: Basic {{user}}:{{password}}
 
@@ -161,4 +161,121 @@ Authorization: Basic {{user}}:{{password}}
     "text": "大胆で見え透いた強がりも まあいいよ"
   }
 }
+```
+
+## 取り込みパイプライン
+
+### パイプライン削除
+
+```http
+DELETE {{host}}/_ingest/pipeline/nlp-bookmarks-ingest-pipeline-lg1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```
+
+### パイプライン作成
+
+```http
+PUT {{host}}/_ingest/pipeline/nlp-bookmarks-ingest-pipeline-lg1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "description": "embedding APIに接続するためのパイプライン",
+  "processors": [
+    {
+      "text_embedding": {
+        "model_id": "gyzcipUBNSyaBaroHlTJ",
+        "field_map": {
+          "text": "embeddings"
+        },
+        "batch_size": 5
+      }
+    }
+  ]
+}
+```
+
+## インデックス
+
+### インデックス消す
+
+```http
+DELETE {{host}}/bookmarks-nlp-lg1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+```
+
+### インデックス作る
+
+```http
+PUT {{host}}/bookmarks-nlp-lg1
+Content-Type: application/json
+Authorization: Basic {{user}}:{{password}}
+
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "knn": true,
+      "knn.algo_param.ef_search": 100
+    },
+    "analysis": {
+      "char_filter": {
+        "normalize": {
+          "type": "icu_normalizer",
+          "name": "nfkc",
+          "mode": "compose"
+        }
+      },
+      "analyzer": {
+        "kuromoji_analyzer": {
+          "type": "custom",
+          "char_filter": [
+            "normalize"
+          ],
+          "tokenizer": "kuromoji_tokenizer",
+          "filter": [
+            "kuromoji_readingform"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "text": {
+        "type": "text",
+        "analyzer": "kuromoji_analyzer",
+        "search_analyzer": "kuromoji_analyzer"
+      },
+      "embeddings": {
+        "type": "knn_vector",
+        "dimension": 1024,
+        "method": {
+          "engine": "nmslib",
+          "space_type": "l2",
+          "name": "hnsw",
+          "parameters": {
+            "ef_construction": 128,
+            "m": 24
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### インデックスにドキュメント入れる
+
+```http
+POST {{host}}/_bulk?batch_size=5&pipeline=nlp-bookmarks-ingest-pipeline-lg1
+Content-Type: application/x-ndjson
+Authorization: Basic {{user}}:{{password}}
+
+{ "create": { "_index": "bookmarks-nlp-lg1", "_id": "BOOKMARK-0001" } }
+{ "text": "「ラーメン１杯が…」万博グルメの高額指摘に吉村洋文知事「ここでしか食べれない」必死の訴え - 社会 : 日刊スポーツ" }
+{ "create": { "_index": "bookmarks-nlp-lg1", "_id": "BOOKMARK-0002" } }
+{ "text": "MCPで広がるLLM　~Clineでの動作原理~" }
 ```
