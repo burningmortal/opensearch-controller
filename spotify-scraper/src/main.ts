@@ -15,7 +15,11 @@ const main = async () => {
       duration: 0,
       artwork: '',
     },
-    meta: {},
+    meta: {
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      owner: '',
+    },
   });
   console.log(parseResult);
 };
