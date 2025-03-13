@@ -10,7 +10,7 @@ export const generateRandomString = (length: number): string => {
   const master = {
     lowerAlphabet: getMaster('a', 26),
     upperAlphabet: getMaster('A', 26),
-    numbers: getMaster('0', 0),
+    numbers: getMaster('0', 10),
   };
   const chars: string[] = [];
   while (chars.length < length) {
@@ -19,6 +19,5 @@ export const generateRandomString = (length: number): string => {
     const index = Math.floor(Math.random() * (target.length - 1));
     chars.push(target[index]);
   }
-  console.log(22, 'lgn', chars.length);
   return chars.join('');
 };
