@@ -3,8 +3,8 @@ import { Meta, parseMeta } from './meta';
 
 describe('parseMeta', () => {
   const base = {
-    createdAt: '2025-01-01T09:00:00Z',
-    updatedAt: '2025-01-01T09:00:00Z',
+    createdAt: '2025-01-01T09:00:00.000Z',
+    updatedAt: '2025-01-01T09:00:00.000Z',
     owner: 'magicalecriture@ututu.me',
   } as const;
 
@@ -19,7 +19,7 @@ describe('parseMeta', () => {
     ({ key, valid, result }) => {
       // Arrange
       const value: Meta = { createdAt: base.createdAt, updatedAt: base.updatedAt, owner: base.owner };
-      if (valid === searchKeyByValue(ParseSatisfy.満たさない, ParseBoolResult)) {
+      if (valid === searchKeyByValue(ParseSatisfy.満たさない, ParseSatisfy)) {
         switch (key) {
           case 'createdAt':
             value.createdAt = '';
