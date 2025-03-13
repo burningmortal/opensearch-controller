@@ -8,14 +8,16 @@ const albumSchema = z
   })
   .strict();
 
-const artistSchema = z.array(
-  z
-    .object({
-      name: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
-      kana: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
-    })
-    .strict(),
-);
+const artistSchema = z
+  .array(
+    z
+      .object({
+        name: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
+        kana: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
+      })
+      .strict(),
+  )
+  .nonempty();
 
 export const trackSchema = z
   .object({
