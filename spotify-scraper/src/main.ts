@@ -5,7 +5,16 @@ const main = async () => {
   const parseResult = parsePlaylist({
     title: 'タイトル',
     descrition: '説明',
-    tracks: {},
+    tracks: {
+      title: 'トラックタイトル',
+      album: {
+        name: '',
+        releaseDate: '',
+      },
+      artist: [{ name: '', kana: '' }],
+      duration: 0,
+      artwork: '',
+    },
     meta: {},
   });
   console.log(parseResult);

@@ -1,10 +1,11 @@
 import { z } from 'zod';
+import { trackSchema } from './track';
 
 const playlistSchema = z
   .object({
     title: z.string(),
     descrition: z.string(),
-    tracks: z.object({}),
+    tracks: trackSchema,
     meta: z.object({}),
   })
   .strict();
