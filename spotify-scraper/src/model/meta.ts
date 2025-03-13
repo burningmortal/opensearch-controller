@@ -1,13 +1,9 @@
 import { z } from 'zod';
+import { DATE_REGEX } from '../core/regex/datetime';
 
 export const metaSchema = z
   .object({
-    createdAt: z
-      .string()
-      .regex(
-        /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])\.[0-9]{3}Z$/,
-        'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)',
-      ),
+    createdAt: z.string().regex(DATE_REGEX, 'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)'),
     updatedAt: z.string(),
     owner: z.string(),
   })
