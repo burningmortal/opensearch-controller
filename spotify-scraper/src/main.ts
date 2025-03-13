@@ -1,16 +1,14 @@
 import SpotifyWebApi from 'spotify-web-api-node';
+import { parsePlaylist } from './model/playlist';
 
 const main = async () => {
-  const spotify = new SpotifyWebApi({
-    clientId: process.env['SPOTIFY_CLIENT_ID'],
-    clientSecret: process.env['SPOTIFY_CLIENT_SECRET'],
-    redirectUri: process.env['SPOTIFY_REDIRECT_URI'],
+  const parseResult = parsePlaylist({
+    title: 'タイトル',
+    descrition: '説明',
+    tracks: {},
+    meta: {},
   });
-
-  const data = await spotify.clientCredentialsGrant();
-  spotify.setAccessToken(data.body['access_token']);
-  const artists = await spotify.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE');
-  console.log(artists.body);
+  console.log(parseResult);
 };
 
 main();
