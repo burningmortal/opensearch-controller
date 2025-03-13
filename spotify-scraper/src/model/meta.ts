@@ -1,10 +1,10 @@
 import { z } from 'zod';
-import { DATE_REGEX } from '../core/regex/datetime';
+import { DATETIME_REGEX } from '../core/regex/datetime';
 
 export const metaSchema = z
   .object({
-    createdAt: z.string().regex(DATE_REGEX, 'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)'),
-    updatedAt: z.string().regex(DATE_REGEX, 'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)'),
+    createdAt: z.string().regex(DATETIME_REGEX, 'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)'),
+    updatedAt: z.string().regex(DATETIME_REGEX, 'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)'),
     owner: z.string().min(1, '入力必須です').max(1000, '1000文字以内で入力してください'),
   })
   .strict();

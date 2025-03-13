@@ -1,7 +1,7 @@
 import { ParseBoolResult, searchKeyByValue } from '../../test/core/parse-result';
-import { DATE_REGEX } from './datetime';
+import { DATETIME_REGEX } from './datetime';
 
-describe('DATE_REGEX', () => {
+describe('DATETIME_REGEX', () => {
   it.each`
     value                         | result
     ${'2025-01-01T00:00:00.001Z'} | ${searchKeyByValue(ParseBoolResult.成功, ParseBoolResult)}
@@ -38,7 +38,7 @@ describe('DATE_REGEX', () => {
       throw new Error('value type is not string');
     }
     // Actnpm
-    const testResult = DATE_REGEX.test(value);
+    const testResult = DATETIME_REGEX.test(value);
     // Asset
     result === searchKeyByValue(ParseBoolResult.成功, ParseBoolResult)
       ? expect(testResult).toBe(true)
