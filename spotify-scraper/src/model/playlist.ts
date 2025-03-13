@@ -1,9 +1,18 @@
-import { Meta } from './meta';
-import { Track } from './track';
+import { z } from 'zod';
 
-type Playlist = {
-  title: string;
-  description: string;
-  tracks: Track[];
-  meta: Meta;
+const playlistSchema = z.object({
+  title: z.string(),
+  descrition: z.string(),
+  tracks: z.object({}),
+  meta: z.object({}),
+});
+
+export type Playlist = z.infer<typeof playlistSchema>;
+
+export const parsePlaylist = (value: Partial<Playlist>): Playlist | undefined => {
+  const parsed = playlistSchema.safeParse(value);
+  if (!parsed.success) {
+    return undefined;
+  }
+  return parsed.data;
 };
