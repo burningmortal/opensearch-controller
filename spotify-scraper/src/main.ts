@@ -15,18 +15,23 @@ const main = async () => {
   const parseResult = parsePlaylist({
     title: playlist.body.name,
     descrition: playlist.body.description ?? '',
-    tracks: [
-      {
-        title: 'トラックタイトル',
+    tracks: playlist.body.tracks.items.map((item) => {
+      if (!item.track) {
+        throw new Error();
+      }
+      const artists = item.track.artists.map((artist) => {
+        return { name: artist.name, kana: artist.name };
+      });
+      return {
+        title: item.track.name,
         album: {
-          name: 'アルバム名',
-          releaseDate: '2025-02-14',
+          name: item.track.album.name,
+          releaseDate: item.track.album.release_date,
         },
-        artist: [{ name: '名前', kana: 'かな' }],
-        duration: 1000234,
-        artwork: 'http://localhost',
-      },
-    ],
+        artist: artists as any,
+        artwork: item.track.album.images[0].url,
+      };
+    }),
     meta: {
       createdAt: '2025-03-14T12:00:00.123Z',
       updatedAt: '2025-03-14T12:00:00.123Z',
