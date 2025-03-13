@@ -2,8 +2,8 @@ import { z } from 'zod';
 
 export const metaSchema = z
   .object({
-    createdAt: z.date(),
-    updatedAt: z.date(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
     owner: z.string(),
   })
   .strict();

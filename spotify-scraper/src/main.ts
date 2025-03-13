@@ -16,8 +16,8 @@ const main = async () => {
       artwork: '',
     },
     meta: {
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      createdAt: new Date().toString(),
+      updatedAt: new Date().toString(),
       owner: '',
     },
   });
