@@ -9,8 +9,10 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "spotify": "^0.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "spotify-web-api-node": "^5.0.2"
   }
 }

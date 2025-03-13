@@ -200,6 +200,15 @@ Authorization: Basic {{user}}:{{password}}
         },
         "batch_size": 5
       }
+    },
+    {
+      "text_embedding": {
+        "model_id": "gyzcipUBNSyaBaroHlTJ",
+        "field_map": {
+          "artists.name.text": "embeddings"
+        },
+        "batch_size": 5
+      }
     }
   ]
 }
