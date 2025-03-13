@@ -1,28 +1,34 @@
 import { z } from 'zod';
+import { DATE_REGEX } from '../core/regex/datetime';
 
 const albumSchema = z
   .object({
-    name: z.string(),
-    releaseDate: z.string(),
+    name: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
+    releaseDate: z.string().regex(DATE_REGEX, '`yyyy-MM-dd`形式で入力してください'),
   })
   .strict();
 
 const artistSchema = z.array(
   z
     .object({
-      name: z.string(),
-      kana: z.string(),
+      name: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
+      kana: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
     })
     .strict(),
 );
 
 export const trackSchema = z
   .object({
-    title: z.string(),
+    title: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
     album: albumSchema,
     artist: artistSchema,
-    duration: z.number(),
-    artwork: z.string(),
+    duration: z
+      .number()
+      .int('整数で入力してください')
+      .positive('1以上の値を入力してください')
+      .max(1000 * 60 * 60 * 24, `${1000 * 60 * 60 * 24}以内の値を入力してください`)
+      .optional(),
+    artwork: z.string().url(),
   })
   .strict();
 

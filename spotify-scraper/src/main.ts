@@ -8,17 +8,17 @@ const main = async () => {
     tracks: {
       title: 'トラックタイトル',
       album: {
-        name: '',
-        releaseDate: '',
+        name: 'アルバム名',
+        releaseDate: '2025-02-14',
       },
-      artist: [{ name: '', kana: '' }],
-      duration: 0,
-      artwork: '',
+      artist: [{ name: '名前', kana: 'かな' }],
+      duration: 1000234,
+      artwork: 'http://localhost',
     },
     meta: {
-      createdAt: new Date().toString(),
-      updatedAt: new Date().toString(),
-      owner: '',
+      createdAt: '2025-03-14T12:00:00.123Z',
+      updatedAt: '2025-03-14T12:00:00.123Z',
+      owner: 'オーナー名',
     },
   });
   console.log(parseResult);
