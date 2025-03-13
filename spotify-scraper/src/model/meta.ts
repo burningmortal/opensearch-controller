@@ -5,7 +5,7 @@ export const metaSchema = z
   .object({
     createdAt: z.string().regex(DATE_REGEX, 'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)'),
     updatedAt: z.string().regex(DATE_REGEX, 'ISO8601形式のUTCで入力してください (ex. `yyyy-MM-ddTHH:MM:ss.SSSZ`)'),
-    owner: z.string(),
+    owner: z.string().min(1).max(1000),
   })
   .strict();
 
