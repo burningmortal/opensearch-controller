@@ -1,33 +1,5 @@
+import { ParseBoolResult, searchKeyByValue } from '../test/core/parse-result';
 import { parseMeta } from './meta';
-
-test('test', () => {
-  const c = new Date().toISOString();
-  const u = new Date().toString();
-  expect(
-    parseMeta({
-      createdAt: c,
-      updatedAt: u,
-      owner: '',
-    }),
-  ).toEqual({
-    createdAt: c,
-    updatedAt: u,
-    owner: '',
-  });
-});
-
-const ParseBoolResult = {
-  成功: true,
-  失敗: false,
-} as const;
-
-const searchKeyByValue = <T, U extends object>(value: T, def: U) => {
-  const target = Object.entries(def).find(([k, v]) => v === value);
-  if (!target) {
-    return undefined;
-  }
-  return target[0];
-};
 
 describe('parseMeta', () => {
   it.todo('createdAtに`yyyy-MM-ddTHH:mm:ss.SSSZ`の書式を満たす文字列を与えるとバリデーションに成功すること');
