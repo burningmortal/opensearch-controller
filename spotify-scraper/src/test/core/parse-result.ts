@@ -10,3 +10,8 @@ export const searchKeyByValue = <T, U extends object>(value: T, def: U) => {
   }
   return target[0];
 };
+
+export const ParseSatisfy = {
+  満たす: true,
+  満たさない: false,
+} as const;
