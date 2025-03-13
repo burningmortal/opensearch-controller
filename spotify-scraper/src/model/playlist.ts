@@ -4,9 +4,9 @@ import { metaSchema } from './meta';
 
 const playlistSchema = z
   .object({
-    title: z.string(),
-    descrition: z.string(),
-    tracks: trackSchema,
+    title: z.string().min(1, '入力必須です').max(1000, ' 1000文字以内で入力してください'),
+    descrition: z.string().max(1000, ' 1000文字以内で入力してください'),
+    tracks: z.array(trackSchema),
     meta: metaSchema,
   })
   .strict();
